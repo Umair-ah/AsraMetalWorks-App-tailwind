@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   root "statics#home"
 
   resources :products
+  resources :racks, only: :index
+  resources :offices, only: :index
+  resources :schools, only: :index
 end
