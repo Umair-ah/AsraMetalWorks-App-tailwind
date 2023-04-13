@@ -1,0 +1,37 @@
+
+<div class="grid grid-cols-1">
+
+     <div>
+        <h1 class="text-3xl text-gray-600 font-bold"><%= @product.name %></h1>
+        <div>
+            <span>&#8377; <%= @product.price %></span>
+        </div>
+
+        <div>
+            <span><%= @product.description %></span>
+        </div>
+
+        <div>
+            <ul class="space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400"> 
+                <li><%= @product.furniture_style %></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-3">
+        <% if @product.pics.attached? %>
+            <% @product.pics.each do |pic| %>
+
+                <div class="bg-white shadow-lg rounded-md font-body overflow-hidden hover:shadow-md transition:ease-in duration-500">
+                    <%= image_tag pic %>
+                </div>
+
+            <% end %>
+
+        <% end %>
+    </div> 
+
+   
+    
+
+</div>

@@ -23,7 +23,7 @@
 
                 <div>
                     <span class="text-bold text-3xl text-slate-500">&#8377; <%= product.price %></span>
-                    <%= link_to "View Details", root_path, class:"block bg-rose-400 text-white text-center px-3 py-2 mt-3 hover:bg-rose-500 transition:ease-in duration-300" %>
+                    <%= link_to "View Details", product_path(product), class:"block bg-rose-400 text-white text-center px-3 py-2 mt-3 hover:bg-rose-500 transition:ease-in duration-300" %>
                     <% if current_admin %>
                         <%= link_to "Edit Product", edit_product_path(product), class:"block text-slate-600 bg-white border border-rose-400 text-center px-3 py-2 mt-3 hover:bg-gray-50 transition:ease-in duration-300" %>
                     <% end %>
