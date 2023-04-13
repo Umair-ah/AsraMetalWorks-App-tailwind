@@ -1,0 +1,33 @@
+<% products.each do |product| %>
+
+    <div class="grid lg:grid-cols-3 gap-10 m-10">
+        <div class="bg-white shadow-lg rounded-md p-5 font-body overflow-hidden">
+        
+            <%= image_tag product.pics[0], class:"w-full h-32 sm:h-48 object-cover" %>
+            <hr class="mt-7">
+
+            <div class="mt-4 mb-3">
+                <span class="text-3xl text-gray-500 font-bold"><%= product.name %></span>
+            </div>
+
+            <% if product.description.present? %>
+                <div class="mb-4">
+                    <span class="text-gray-400 block"><%= product.description.truncate(33) %></span>
+                </div>
+            <% end %>
+
+            <div class="mb-3">
+                <ul class="space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400"> 
+                    <li><%= product.furniture_style %></li>
+                </ul>
+            </div>
+
+            <div>
+                <span class="text-bold text-3xl text-slate-500">&#8377; <%= product.price %></span>
+            </div>
+        
+        </div>
+    </div>
+
+
+<% end %>

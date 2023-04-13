@@ -1,0 +1,33 @@
+<%= form_with(model: [product]) do |form| %>
+    
+
+    <%= form.label :name %>
+    <%= form.text_field :name, class:"form-control", required: true %>
+
+
+
+    <%= form.label :price %>
+    <%= form.number_field :price, class:"form-control", required: true %>
+
+
+
+    <%= form.label :description %>
+    <%= form.text_area :description, class:"form-control", required: true %>
+
+
+    <%= form.file_field :pics, multiple: true, class:"my-3", id: "files-upload", required: true %>
+
+
+
+
+    <%= form.label :furniture_style %>
+    <%= form.select :furniture_style, ['Metal Racks Furniture', 'Metal Office Furniture', 'Metal School Furniture'], { prompt: 'Select' }, class:"form-select", required: true %>
+
+
+    
+    <%= form.submit "Create Product", class:" my-4 btn btn-primary" %>
+  
+
+
+
+<% end %>
