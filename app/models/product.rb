@@ -1,4 +1,4 @@
 class Product < ApplicationRecord
   belongs_to :admin
-  has_many_attached :pics
+  has_one_attached :pic
 end
