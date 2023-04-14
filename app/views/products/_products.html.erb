@@ -38,42 +38,38 @@
   </div>
 </div>
 
+<div class="grid lg:grid-cols-4 gap-10 m-10">
+  <% products.each do |product| %>
 
-<% products.each do |product| %>
+          <div class="bg-white shadow-lg rounded-md font-body overflow-hidden hover:shadow-md transition:ease-in duration-500">
+          
+              <%= image_tag product.pic, class:"w-full h-32 sm:h-48 object-cover" %><hr class="mt-4">
+              <div class="p-3 m-3">
+                  <div class="mb-3">
+                      <span class="text-3xl text-gray-500 font-bold"><%= product.name.truncate(13) %></span>
+                  </div>
 
-    <div class="grid lg:grid-cols-4 gap-10 m-10">
-        <div class="bg-white shadow-lg rounded-md font-body overflow-hidden hover:shadow-md transition:ease-in duration-500">
-        
-            <%= image_tag product.pic, class:"w-full h-32 sm:h-48 object-cover" %><hr class="mt-4">
-            <div class="p-3 m-3">
-                <div class="mb-3">
-                    <span class="text-3xl text-gray-500 font-bold"><%= product.name.truncate(13) %></span>
-                </div>
+                  <% if product.description.present? %>
+                      <div class="mb-4">
+                          <span class="text-gray-400 block"><%= product.description.truncate(33) %></span>
+                      </div>
+                  <% end %>
 
-                <% if product.description.present? %>
-                    <div class="mb-4">
-                        <span class="text-gray-400 block"><%= product.description.truncate(33) %></span>
-                    </div>
-                <% end %>
+                  <div class="mb-3">
+                      <ul class="space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400"> 
+                          <li><%= product.furniture_style %></li>
+                      </ul>
+                  </div>
 
-                <div class="mb-3">
-                    <ul class="space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400"> 
-                        <li><%= product.furniture_style %></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <span class="text-bold text-3xl text-slate-500">&#8377; <%= product.price %></span>
-                    <%= link_to "View Details", product_path(product), class:"block bg-rose-400 text-white text-center px-3 py-2 mt-3 hover:bg-rose-500 transition:ease-in duration-300" %>
-                    <% if current_admin %>
-                        <%= link_to "Edit Product", edit_product_path(product), class:"block text-slate-600 bg-white border border-rose-400 text-center px-3 py-2 mt-3 hover:bg-gray-50 transition:ease-in duration-300" %>
-                    <% end %>
-                </div>
-    
-            </div>
-        </div>
-
-    </div>
-
-
-<% end %>
+                  <div>
+                      <span class="text-bold text-3xl text-slate-500">&#8377; <%= product.price %></span>
+                      <%= link_to "View Details", product_path(product), class:"block bg-rose-400 text-white text-center px-3 py-2 mt-3 hover:bg-rose-500 transition:ease-in duration-300" %>
+                      <% if current_admin %>
+                          <%= link_to "Edit Product", edit_product_path(product), class:"block text-slate-600 bg-white border border-rose-400 text-center px-3 py-2 mt-3 hover:bg-gray-50 transition:ease-in duration-300" %>
+                      <% end %>
+                  </div>
+      
+              </div>
+          </div>
+  <% end %>
+</div>
